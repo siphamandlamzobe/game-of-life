@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace GameOfLlife.Test
 {
-    public class GameOfLlifeTest
+    public class GameOfLifeTest
     {
         [SetUp]
         public void Setup()

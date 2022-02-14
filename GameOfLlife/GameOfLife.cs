@@ -1,6 +1,6 @@
 ﻿namespace GameOfLlife
 {
-    public class GameOfLlife
+    public class GameOfLife
     {
 
     }
