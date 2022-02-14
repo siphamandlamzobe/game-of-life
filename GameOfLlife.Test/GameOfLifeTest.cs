@@ -4,15 +4,22 @@ namespace GameOfLlife.Test
 {
     public class GameOfLifeTest
     {
-        [SetUp]
-        public void Setup()
+        private readonly IGameOfLife _gameOfLife;
+
+        public GameOfLifeTest(IGameOfLife gameOfLife)
         {
+            _gameOfLife = gameOfLife;
+        }
+
+        public GameOfLifeTest() : this(new GameOfLife())
+        {
+
         }
 
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            Assert.AreEqual("", _gameOfLife.GetNextGeneration());
         }
     }
 }

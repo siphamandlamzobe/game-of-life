@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Console", "GameOfLife.Console\GameOfLife.Console.csproj", "{A9ACDB44-2012-4932-8C4F-FEE09C70AE1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{6AE1303C-3894-44C8-86C3-18D8568CEA48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AE1303C-3894-44C8-86C3-18D8568CEA48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AE1303C-3894-44C8-86C3-18D8568CEA48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9ACDB44-2012-4932-8C4F-FEE09C70AE1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9ACDB44-2012-4932-8C4F-FEE09C70AE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9ACDB44-2012-4932-8C4F-FEE09C70AE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9ACDB44-2012-4932-8C4F-FEE09C70AE1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
