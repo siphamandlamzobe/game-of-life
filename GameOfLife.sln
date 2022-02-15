@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Console", "GameOfLife.Console\GameOfLife.Console.csproj", "{A9ACDB44-2012-4932-8C4F-FEE09C70AE1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameOfLife.Console", "GameOfLife.Console\GameOfLife.Console.csproj", "{A9ACDB44-2012-4932-8C4F-FEE09C70AE1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,6 +4,6 @@
     {
         char[,] GetFirstGenerationGridData();
         void DisplayGrid(char[,] array);
-        char[,] WriteNextGenerationGridData();
+        void WriteNextGenerationGridData(char[,] nextGeneration);
     }
 }

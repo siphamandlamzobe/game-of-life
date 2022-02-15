@@ -1,20 +1,22 @@
-﻿using System.Text;
+﻿using GameOfLife;
+using System.Text;
 
 namespace GameOfLlife
 {
     public class GameOfLife : IGameOfLife
     {
         private readonly IGridService _gridService;
-        
+        private readonly INeighboursService _neighboursService;
 
-        public GameOfLife() : this(new GridService())
+        public GameOfLife() : this(new GridService(), new NeighboursService())
         {
 
         }
         
-        public GameOfLife(IGridService gridService)
+        public GameOfLife(IGridService gridService, INeighboursService neighboursService)
         {
             _gridService = gridService;
+            _neighboursService = neighboursService;
         }
 
         public char[,] GetNextGeneration()
@@ -26,27 +28,28 @@ namespace GameOfLlife
                 for (int x = 0; x <= firstGeneration.GetUpperBound(1); x++)
                 {
                     var element = firstGeneration[i, x];
-                    var elementNeighbors = FindNeighbours(firstGeneration,  i, x);
+                    var elementNeighbors = _neighboursService.FindNeighbours(firstGeneration,  i, x);
+                    int lives = _neighboursService.FindNumberOfLiveNeighbours(elementNeighbors);
                     if (element.Equals('*'))
                     {
-                        switch (FindNumberOfLiveOrDeadNeighbours(elementNeighbors, '*'))
+                        switch (lives)
                         {
-                            case 1:
+                            case int val when val == 1 || val > 3:
                                 nextGeneration[i, x] = '.';
                                 break;
-                            case 4:
-                                nextGeneration[i, x] = '.';
-                                break;
-                            case 2 or 3:
+                            case int val when val == 2 || val == 3:
                                 nextGeneration[i, x] = '*';
+                                break;
+                            default:
+                                nextGeneration[i, x] = '.';
                                 break;
                         }
                     }
                     else
                     {
-                        switch (FindNumberOfLiveOrDeadNeighbours(elementNeighbors, '*'))
+                        switch (lives)
                         {
-                            case 3:
+                            case int val when val == 3:
                                 nextGeneration[i, x] = '*';
                                 break;
                             default:
@@ -57,43 +60,8 @@ namespace GameOfLlife
                     
                 }
             }
-            _gridService.DisplayGrid(nextGeneration);
+            _gridService.WriteNextGenerationGridData(nextGeneration);
             return nextGeneration;
-        }
-
-        public int FindNumberOfLiveOrDeadNeighbours(string neighbors, char state)
-        {
-
-            int freq = 0;
-            foreach (char c in neighbors)
-            {
-                if (c == state)
-                {
-                    freq++;
-                }
-            }
-            return freq;
-        }
-
-        public string FindNeighbours(char[,] firstGeneration, int row, int col)
-        {
-            var str = new StringBuilder();
-            var row_limit = firstGeneration.GetLength(0) -1;
-            if (row_limit > 0)
-            {
-                var column_limit = firstGeneration.GetLength(0);
-                for (var x = Math.Max(0, row - 1); x <= Math.Min(row + 1, row_limit); x++)
-                {
-                    for (var y = Math.Max(0, col - 1); y <= Math.Min(col + 1, column_limit); y++)
-                    {
-                        if (x != row || y != col)
-                        {
-                            str.Append(firstGeneration[x,y]);
-                        }
-                    }
-                }
-            }
-            return str.ToString();
         }
     }
 }

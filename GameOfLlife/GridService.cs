@@ -1,4 +1,6 @@
-﻿namespace GameOfLlife
+﻿using System.Text;
+
+namespace GameOfLlife
 {
     public class GridService : IGridService
     {
@@ -31,9 +33,9 @@
             }
         }
 
-        public char[,] WriteNextGenerationGridData()
+        public void WriteNextGenerationGridData(char[,] nextGeneration)
         {
-            throw new NotImplementedException();
+            _fileService.WriteToFile(nextGeneration);
         }
     }
 }

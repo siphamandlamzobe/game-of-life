@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace GameOfLlife
 {
@@ -31,5 +32,22 @@ namespace GameOfLlife
 
             return generation;
         }
+
+        public void WriteToFile(char[,] nextGeneration)
+        {
+            StreamWriter streamWriter = new StreamWriter(@"C:\\Dev\\Kata2\\GameOfLlife\\GameOfLlife\\NextGeneration\\NextGeneration.txt");
+            var output = new StringBuilder();
+            for (int i = 0; i <= nextGeneration.GetUpperBound(0); i++)
+            {
+                for (int j = 0; j <= nextGeneration.GetUpperBound(1); j++)
+                {
+                    output.Append(nextGeneration[i, j]);
+                }
+                streamWriter.WriteLine(output.ToString());
+                output.Clear();
+            }
+            streamWriter.Close();
+        }
+
     }
 }

@@ -17,9 +17,15 @@ namespace GameOfLlife.Test
         }
 
         [Test]
-        public void Test1()
+        public void Given_Generation1_When_FinidngNextGeneration_Should_ReturnNextGeneration()
         {
-            Assert.AreEqual("", _gameOfLife.GetNextGeneration());
+            var expected = new char[,] {
+                { '.', '.', '.', '.', '.', '.', '.', '.' },
+                { '.', '.', '.', '*', '*', '.', '.', '.' },
+                { '.', '.', '.', '*', '*', '.', '.', '.' },
+                { '.', '.', '.', '.', '.', '.', '.', '.' } };
+            var actual = _gameOfLife.GetNextGeneration();
+            Assert.AreEqual(expected, actual);
         }
     }
 }
