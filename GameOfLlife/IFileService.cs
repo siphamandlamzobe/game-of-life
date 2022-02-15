@@ -2,7 +2,7 @@
 {
     public interface IFileService
     {
-        Char[,] GetData();
+        bool[,] GetData();
         void WriteToFile(char[,] nextGeneration);
     }
 }
