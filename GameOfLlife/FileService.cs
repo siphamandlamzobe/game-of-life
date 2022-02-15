@@ -7,7 +7,6 @@ namespace GameOfLlife
     {
         public char[,] GetData()
         {
-            //string directory = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
             string directory = "C:\\Dev\\Kata2\\GameOfLlife\\GameOfLlife";
             directory = Path.Combine(directory, @"Generation1.txt"); 
 
