@@ -2,7 +2,7 @@
 {
     public interface IGridService
     {
-        char[,] GetFirstGenerationGridData();
+        bool[,] GetFirstGenerationGridData();
         void DisplayGrid(char[,] array);
         void WriteNextGenerationGridData(char[,] nextGeneration);
     }

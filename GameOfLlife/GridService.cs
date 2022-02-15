@@ -15,7 +15,7 @@ namespace GameOfLlife
 
         }
 
-        public char[,] GetFirstGenerationGridData()
+        public bool[,] GetFirstGenerationGridData()
         {
             return _fileService.GetData();
         }

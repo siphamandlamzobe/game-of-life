@@ -8,7 +8,7 @@ namespace GameOfLife
 {
     public interface INeighboursService
     {
-        int FindNumberOfLiveNeighbours(string neighbors);
-        string FindNeighbours(char[,] firstGeneration, int row, int col);
+        int FindNumberOfLiveNeighbours(bool[] neighbors);
+        bool[] FindNeighbours(bool[,] firstGeneration, int row, int col);
     }
 }

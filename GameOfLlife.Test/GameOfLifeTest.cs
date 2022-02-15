@@ -1,19 +1,16 @@
+using GameOfLife;
 using NUnit.Framework;
 
 namespace GameOfLlife.Test
 {
     public class GameOfLifeTest
     {
-        private readonly IGameOfLife _gameOfLife;
+        GameOfLife _gameOfLife;
 
-        public GameOfLifeTest(IGameOfLife gameOfLife)
+        [SetUp]
+        public void SetUp()
         {
-            _gameOfLife = gameOfLife;
-        }
-
-        public GameOfLifeTest() : this(new GameOfLife())
-        {
-
+            _gameOfLife = new GameOfLife(new GridService(), new NeighboursService(), new GameRulesService());
         }
 
         [Test]

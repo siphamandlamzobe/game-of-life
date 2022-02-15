@@ -3,64 +3,48 @@ using System.Text;
 
 namespace GameOfLlife
 {
-    public class GameOfLife : IGameOfLife
+    public class GameOfLife
     {
-        private readonly IGridService _gridService;
-        private readonly INeighboursService _neighboursService;
+        private IGridService _gridService;
+        private INeighboursService _neighboursService;
+        private IGameRulesService _gameRulesService;
 
-        public GameOfLife() : this(new GridService(), new NeighboursService())
-        {
-
-        }
-        
-        public GameOfLife(IGridService gridService, INeighboursService neighboursService)
+        public GameOfLife(IGridService gridService, INeighboursService neighboursService, IGameRulesService gameRulesService)
         {
             _gridService = gridService;
             _neighboursService = neighboursService;
+            _gameRulesService = gameRulesService;
         }
 
         public char[,] GetNextGeneration()
         {
             var firstGeneration = _gridService.GetFirstGenerationGridData();
+
             var nextGeneration = new char[firstGeneration.GetLength(0), firstGeneration.GetLength(1)];
+
             for (int i = 0; i <= firstGeneration.GetUpperBound(0); i++)
             {
                 for (int x = 0; x <= firstGeneration.GetUpperBound(1); x++)
                 {
-                    var element = firstGeneration[i, x];
                     var elementNeighbors = _neighboursService.FindNeighbours(firstGeneration,  i, x);
-                    int numberOfLives = _neighboursService.FindNumberOfLiveNeighbours(elementNeighbors);
-                    if (element.Equals('*'))
+
+                    int numberOfliveCells = _neighboursService.FindNumberOfLiveNeighbours(elementNeighbors);
+
+                    if (firstGeneration[i, x])
                     {
-                        switch (numberOfLives)
-                        {
-                            case int val when val == 1 || val > 3:
-                                nextGeneration[i, x] = '.';
-                                break;
-                            case int val when val == 2 || val == 3:
-                                nextGeneration[i, x] = '*';
-                                break;
-                            default:
-                                nextGeneration[i, x] = '.';
-                                break;
-                        }
+                        nextGeneration[i, x] = _gameRulesService.UpdateLiveCells(nextGeneration, numberOfliveCells,i,x);
                     }
                     else
                     {
-                        switch (numberOfLives)
-                        {
-                            case int val when val == 3:
-                                nextGeneration[i, x] = '*';
-                                break;
-                            default:
-                                nextGeneration[i, x] = '.';
-                                break;
-                        }
+                        nextGeneration[i, x] = _gameRulesService.UpdateDeadCells(nextGeneration, numberOfliveCells, i, x);
                     }
-                    
                 }
             }
+
             _gridService.WriteNextGenerationGridData(nextGeneration);
+
+            _gridService.DisplayGrid(nextGeneration);
+
             return nextGeneration;
         }
     }
