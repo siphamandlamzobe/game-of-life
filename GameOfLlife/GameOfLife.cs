@@ -29,10 +29,10 @@ namespace GameOfLlife
                 {
                     var element = firstGeneration[i, x];
                     var elementNeighbors = _neighboursService.FindNeighbours(firstGeneration,  i, x);
-                    int lives = _neighboursService.FindNumberOfLiveNeighbours(elementNeighbors);
+                    int numberOfLives = _neighboursService.FindNumberOfLiveNeighbours(elementNeighbors);
                     if (element.Equals('*'))
                     {
-                        switch (lives)
+                        switch (numberOfLives)
                         {
                             case int val when val == 1 || val > 3:
                                 nextGeneration[i, x] = '.';
@@ -47,7 +47,7 @@ namespace GameOfLlife
                     }
                     else
                     {
-                        switch (lives)
+                        switch (numberOfLives)
                         {
                             case int val when val == 3:
                                 nextGeneration[i, x] = '*';
