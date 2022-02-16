@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace GameOfLlife
+namespace GameOfLife
 {
     public class GridService : IGridService
     {

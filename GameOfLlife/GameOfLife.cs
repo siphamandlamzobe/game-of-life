@@ -1,7 +1,7 @@
 ﻿using GameOfLife;
 using System.Text;
 
-namespace GameOfLlife
+namespace GameOfLife
 {
     public class GameOfLife
     {

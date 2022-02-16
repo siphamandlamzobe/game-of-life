@@ -2,11 +2,12 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace GameOfLlife
+namespace GameOfLife
 {
     public class FileService : IFileService
     {
         private string _directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+        
         private readonly IBooleanArrayService _booleanArrayService;
 
         public FileService(IBooleanArrayService booleanArrayService)

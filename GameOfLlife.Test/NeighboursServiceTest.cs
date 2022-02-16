@@ -21,7 +21,7 @@ namespace GameOfLife.Test
         [TestCase(new bool[] { false, true, false, true, false }, 2)]
         [TestCase(new bool[] { false, true, false, true, true }, 3)]
         [TestCase(new bool[] { true, true, true, true, true }, 5)]
-        public void Given_BooleanArray_WhenFindingNumberOfLiveNeighbours_Should_Return_NumberOfLiveCells(bool[] neighbors, int expected)
+        public void Given_BooleanArray_When_FindingNumberOfLiveNeighbours_Should_Return_NumberOfLiveCells(bool[] neighbors, int expected)
         {
             Assert.AreEqual(expected, _neighboursService.FindNumberOfLiveNeighbours(neighbors));
         }

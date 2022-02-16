@@ -1,7 +1,7 @@
 using GameOfLife;
 using NUnit.Framework;
 
-namespace GameOfLlife.Test
+namespace GameOfLife.Test
 {
     public class GameOfLifeTest
     {

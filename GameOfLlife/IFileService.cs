@@ -1,4 +1,4 @@
-﻿namespace GameOfLlife
+﻿namespace GameOfLife
 {
     public interface IFileService
     {
