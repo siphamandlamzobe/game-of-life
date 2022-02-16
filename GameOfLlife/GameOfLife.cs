@@ -47,10 +47,8 @@ namespace GameOfLlife
             {
                 return nextGeneration[row, column] = _gameRulesService.UpdateLiveCells(nextGeneration, numberOfliveCells, row, column);
             }
-            else
-            {
-                return nextGeneration[row, column] = _gameRulesService.UpdateDeadCells(nextGeneration, numberOfliveCells, row, column);
-            }
+
+            return nextGeneration[row, column] = _gameRulesService.UpdateDeadCells(nextGeneration, numberOfliveCells, row, column);
         }
     }
 }
