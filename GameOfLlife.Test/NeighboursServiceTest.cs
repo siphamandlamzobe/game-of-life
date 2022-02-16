@@ -57,5 +57,21 @@ namespace GameOfLife.Test
             var actual = _neighboursService.FindNeighbours(firstGeneration, row, col);
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void Given_FirstGenerationGridForElement14_When_FindingNeighbours_Should_ReturnBooleanArrayWithNeigbhours()
+        {
+            var firstGeneration = new bool[,] {
+                { false, false, false, false, false, false, false, false },
+                { false, false, false, false, true, false, false, false },
+                { false, false, false, true, true, false, false, false },
+                { false, false, false, false, false, false, false, false } };
+
+            var expected = new bool[] { false, false, false, true, true, false, false, false };
+            var row = 1;
+            var col = 4;
+            var actual = _neighboursService.FindNeighbours(firstGeneration, row, col);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
