@@ -26,18 +26,7 @@ namespace GameOfLlife
             {
                 for (int x = 0; x <= firstGeneration.GetUpperBound(1); x++)
                 {
-                    var elementNeighbors = _neighboursService.FindNeighbours(firstGeneration,  i, x);
-
-                    int numberOfliveCells = _neighboursService.FindNumberOfLiveNeighbours(elementNeighbors);
-
-                    if (firstGeneration[i, x])
-                    {
-                        nextGeneration[i, x] = _gameRulesService.UpdateLiveCells(nextGeneration, numberOfliveCells,i,x);
-                    }
-                    else
-                    {
-                        nextGeneration[i, x] = _gameRulesService.UpdateDeadCells(nextGeneration, numberOfliveCells, i, x);
-                    }
+                    BuildNextGeneration(firstGeneration, nextGeneration, i, x);
                 }
             }
 
@@ -46,6 +35,22 @@ namespace GameOfLlife
             _gridService.DisplayGrid(nextGeneration);
 
             return nextGeneration;
+        }
+
+        private char BuildNextGeneration(bool[,] firstGeneration, char[,] nextGeneration, int row, int column)
+        {
+            var elementNeighbors = _neighboursService.FindNeighbours(firstGeneration, row, column);
+
+            int numberOfliveCells = _neighboursService.FindNumberOfLiveNeighbours(elementNeighbors);
+
+            if (firstGeneration[row, column])
+            {
+                return nextGeneration[row, column] = _gameRulesService.UpdateLiveCells(nextGeneration, numberOfliveCells, row, column);
+            }
+            else
+            {
+                return nextGeneration[row, column] = _gameRulesService.UpdateDeadCells(nextGeneration, numberOfliveCells, row, column);
+            }
         }
     }
 }
