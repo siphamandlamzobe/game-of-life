@@ -16,9 +16,9 @@ namespace GameOfLlife
             _gameRulesService = gameRulesService;
         }
 
-        public char[,] GetNextGeneration()
+        public char[,] GetNextGeneration(string fileName)
         {
-            var firstGeneration = _gridService.GetFirstGenerationGridData();
+            var firstGeneration = _gridService.GetFirstGenerationGridData(fileName);
 
             var nextGeneration = new char[firstGeneration.GetLength(0), firstGeneration.GetLength(1)];
 

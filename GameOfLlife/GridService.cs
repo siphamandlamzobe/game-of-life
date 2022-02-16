@@ -15,9 +15,9 @@ namespace GameOfLlife
 
         }
 
-        public bool[,] GetFirstGenerationGridData()
+        public bool[,] GetFirstGenerationGridData(string fileName)
         {
-            return _fileService.GetData();
+            return _fileService.GetData(fileName);
         }
 
         public void DisplayGrid(char[,] array)
