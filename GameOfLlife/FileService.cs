@@ -28,7 +28,7 @@ namespace GameOfLlife
             return _booleanArrayService.ConvertToBooleanArray(rows,rowLength, rowCount);
         }
 
-        public string[] GetFileDataRows()
+        private string[] GetFileDataRows()
         {
             var filePath = Path.Combine(_directory, @"Generation1.txt");
 
