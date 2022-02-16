@@ -10,29 +10,27 @@ namespace GameOfLife
     {
         public char UpdateDeadCells(char[,] nextGeneration, int numberOfliveCells, int row, int col)
         {
-            switch (numberOfliveCells)
+            if (numberOfliveCells == 3)
             {
-                case int val when val == 3:
-                    return nextGeneration[row, col] = '*';
-                    
-                default:
-                    return nextGeneration[row, col] = '.';
+                return nextGeneration[row, col] = '*';
             }
+
+            return nextGeneration[row, col] = '.';
         }
 
         public char UpdateLiveCells(char[,] nextGeneration, int numberOfliveCells, int row, int col)
         {
-            switch (numberOfliveCells)
+            if(numberOfliveCells == 1 || numberOfliveCells > 3)
             {
-                case int val when val == 1 || val > 3:
-                    return nextGeneration[row, col] = '.';
-
-                case int val when val == 2 || val == 3:
-                    return nextGeneration[row, col] = '*';
-
-                default:
-                    return nextGeneration[row, col] = '.';
+                return nextGeneration[row, col] = '.';
             }
+            
+            if (numberOfliveCells == 2 || numberOfliveCells == 3)
+            {
+                return nextGeneration[row, col] = '*';
+            }
+
+            return nextGeneration[row, col] = '.';
         }
     }
 }
