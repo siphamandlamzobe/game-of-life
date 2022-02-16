@@ -34,13 +34,13 @@ namespace GameOfLife
             return neighboursArray;
         }
 
-        public int FindNumberOfLiveNeighbours(bool[] neighbors)
+        public int FindNumberOfLiveNeighbours(bool[] neighbours)
         {
             int freq = 0;
 
-            foreach (var b in neighbors)
+            foreach (var neighbour in neighbours)
             {
-                if (b)
+                if (neighbour)
                 {
                     freq++;
                 }
