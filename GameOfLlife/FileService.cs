@@ -18,9 +18,9 @@ namespace GameOfLlife
         {
         }
 
-        public bool[,] GetData()
+        public bool[,] GetData(string fileName)
         {
-            var rows = GetFileDataRows();
+            var rows = GetFileDataRows(fileName);
 
             int rowLength = rows[0].Length;
             int rowCount = rows.Length;
@@ -28,9 +28,9 @@ namespace GameOfLlife
             return _booleanArrayService.ConvertToBooleanArray(rows,rowLength, rowCount);
         }
 
-        private string[] GetFileDataRows()
+        private string[] GetFileDataRows(string fileName)
         {
-            var filePath = Path.Combine(_directory, @"Generation1.txt");
+            var filePath = Path.Combine(_directory, fileName);
 
             string fileContent = File.ReadAllText(filePath);
 
