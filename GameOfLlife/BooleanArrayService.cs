@@ -26,7 +26,6 @@ namespace GameOfLife
                         firstGeneration[i, j] = true;
                     }
                 }
-                Console.WriteLine();
             }
 
             return firstGeneration;
