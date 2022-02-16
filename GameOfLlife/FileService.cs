@@ -43,16 +43,16 @@ namespace GameOfLlife
         {
             StreamWriter streamWriter = new StreamWriter(_directory +@"\NextGeneration\\NextGeneration.txt");
 
-            var output = new StringBuilder();
+            var stringBuilder = new StringBuilder();
 
             for (int i = 0; i <= nextGeneration.GetUpperBound(0); i++)
             {
                 for (int j = 0; j <= nextGeneration.GetUpperBound(1); j++)
                 {
-                    output.Append(nextGeneration[i, j]);
+                    stringBuilder.Append(nextGeneration[i, j]);
                 }
-                streamWriter.WriteLine(output.ToString());
-                output.Clear();
+                streamWriter.WriteLine(stringBuilder.ToString());
+                stringBuilder.Clear();
             }
             streamWriter.Close();
         }
