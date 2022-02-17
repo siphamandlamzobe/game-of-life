@@ -5,9 +5,9 @@ namespace GameOfLife
 {
     public class GameOfLife
     {
-        private IGridService _gridService;
-        private INeighboursService _neighboursService;
-        private IGameRulesService _gameRulesService;
+        private readonly IGridService _gridService;
+        private readonly INeighboursService _neighboursService;
+        private readonly IGameRulesService _gameRulesService;
 
         public GameOfLife(IGridService gridService, INeighboursService neighboursService, IGameRulesService gameRulesService)
         {
