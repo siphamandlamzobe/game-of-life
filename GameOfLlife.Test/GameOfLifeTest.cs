@@ -10,7 +10,8 @@ namespace GameOfLife.Test
         [SetUp]
         public void SetUp()
         {
-            _gameOfLife = new GameOfLife(new GridService(), new NeighboursService(), new GameRulesService());
+            var fileService = new FileService();
+            _gameOfLife = new GameOfLife(new GridService(fileService), new NeighboursService(), new GameRulesService());
         }
 
         [Test]

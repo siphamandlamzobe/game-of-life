@@ -9,11 +9,6 @@ namespace GameOfLife
         {
             _fileService = fileService;
         }
-        
-        public GridService() : this(new FileService())
-        {
-
-        }
 
         public bool[,] GetFirstGenerationGridData(string fileName)
         {
